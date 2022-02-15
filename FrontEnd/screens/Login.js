@@ -9,7 +9,7 @@ import {
 import CustomButton from "../components/CustomButton";
 import CustomInput from "../components/CustomInput";
 
-export default function Login() {
+export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
  
@@ -27,7 +27,7 @@ export default function Login() {
       <Text style={styles.title}>HAPPY FURRY FRIEND PICKING!</Text>
       <View style={styles.card}>
         <Text style={styles.smallTitle}>Log In To Your Account</Text>
-        <Text style={{ marginLeft: 6 }}>Enter Your Email:</Text>
+        <Text style={{ marginLeft: 6 }}>Email Address:</Text>
         <CustomInput
           placeholder="Email Address"
           secured={false}
@@ -36,7 +36,7 @@ export default function Login() {
           onChangeText={(value) => setEmail(value)}
         />
 
-        <Text style={{ marginLeft: 6 }}>Enter Your Password:</Text>
+        <Text style={{ marginLeft: 6 }}>Password:</Text>
         <CustomInput
           placeholder="Password"
           secured={true}
@@ -45,7 +45,7 @@ export default function Login() {
           onChangeText={(value) => setPassword(value)}
         />
         <CustomButton title="LOGIN" onPress={submitHandler} />
-        <TouchableOpacity
+        <TouchableOpacity onPress={()=>props.navigation.navigate("Register")}
           style={{
             textAlign: "center",
             marginTop: 4,
@@ -96,6 +96,7 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
     position: "absolute",
+    marginTop: 50,
     bottom: 0,
     left: 0,
     right: 0,
