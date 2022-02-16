@@ -13,23 +13,20 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 function MyPetsList() {
   const myPets = [
-    { id: 1, name: "Louza", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 2, name: "Roxy", gender: "F", species: "Cat", Dob: "05/2013" },
-    { id: 3, name: "Sakura", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 4, name: "Coopy", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 5, name: "Kiwi", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 6, name: "Mango", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 7, name: "Floki", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 8, name: "Misty", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 9, name: "Melodie", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 20, name: "Roxy", gender: "F", species: "Cat", Dob: "05/2013" },
-    { id: 30, name: "Sakura", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 40, name: "Coopy", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 50, name: "Kiwi", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 60, name: "Mango", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 70, name: "Floki", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 80, name: "Misty", gender: "F", species: "Cat", Dob: "05/2015" },
-
+    { id: 1, name: "Melodie", gender: "F", species: "Parrot", dob: "05/2015" },
+    { id: 2, name: "Roxy", gender: "F", species: "Fish", dob: "05/2013" },
+    { id: 3, name: "Sakura", gender: "F", species: "Bird", dob: "05/2015" },
+    { id: 4, name: "Coopy", gender: "F", species: "Hamster", dob: "05/2015" },
+    { id: 5, name: "Kiwi", gender: "M", species: "Snake", dob: "05/2015" },
+    { id: 6, name: "Mango", gender: "M", species: "Monkey", dob: "05/2015" },
+    { id: 7, name: "Floki", gender: "M", species: "Rabbit", dob: "05/2015" },
+    { id: 8, name: "Misty", gender: "F", species: "Raccoon", dob: "05/2015" },
+    { id: 9, name: "Sacha", gender: "F", species: "Cat", dob: "05/2015" },
+    { id: 10, name: "Cynthia", gender: "F", species: "Cat", dob: "05/2013" },
+    { id: 11, name: "Stormy", gender: "M", species: "Cat", dob: "05/2015" },
+    { id: 12, name: "Lux", gender: "M", species: "Cat", dob: "05/2015" },
+    { id: 13, name: "Angel", gender: "F", species: "Cat", dob: "05/2015" },
+    { id: 14, name: "Leo", gender: "M", species: "Dog", dob: "05/2015" },
   ];
 
   const [isArrowPressed, setIsArrowPressed] = useState(false);
@@ -42,22 +39,102 @@ function MyPetsList() {
       <View style={{ ...styles.card, height: isArrowPressed ? "auto" : 67 }}>
         <View>
           <Text
-            style={{ textAlign: "center", flexDirection: "column", flexWrap: "wrap" }}>
-            <View
-              style={{ flexDirection: "row", alignItems: "center"}}>
+            style={{
+              textAlign: "center",
+              flexDirection: "column",
+              flexWrap: "wrap",
+            }}
+          >
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={styles.bigTitle}>My Pets {"     "}</Text>
-              <TouchableOpacity onPress={arrowPressed} style={{}}>
+              <TouchableOpacity onPress={arrowPressed}>
                 {isArrowPressed ? (
                   <Icon name="arrow-circle-up" size={25} color="#9132a8" />
                 ) : (
                   <Icon name="arrow-circle-down" size={25} color="#9132a8" />
                 )}
               </TouchableOpacity>
+              <Text>{"   "}</Text>
+              <TouchableOpacity>
+                <Icon name="plus-circle" size={25} color="#9132a8" />
+              </TouchableOpacity>
             </View>
           </Text>
-
-          {isArrowPressed &&
-            myPets.map((pet) => <Text key={pet.id}>{pet.name}</Text>)}
+          <View
+            style={{
+              flex: 1,
+              flexDirection: "column",
+              justifyContent: 'space-between',
+              alignItems: "stretch",
+            }}
+          >
+            {isArrowPressed &&
+              myPets.map((pet) => (
+                <Text
+                  key={pet.id}
+                  // style={{
+                  //   flexDirection: "row",
+                    // flexWrap: "nowrap",
+                  //   flex: 1,
+                  // }}
+                >
+                  {" "}
+                  <TouchableOpacity>
+                    <Text
+                      style={{
+                        flex: 1,
+                        flexDirection: "row",
+                        alignItems: "center",
+                      }}
+                    ><Text style={{justifyContent: 'flex-start'}}>
+                      {pet.species == "Cat"
+                        ? "🐱"
+                        : pet.species == "Dog"
+                        ? "🐶"
+                        : pet.species == "Hamster"
+                        ? "🐹"
+                        : pet.species == "Turtle"
+                        ? "🐢"
+                        : pet.species == "Bird"
+                        ? "🐦"
+                        : pet.species == "Parrot"
+                        ? "🦜"
+                        : pet.species == "Fish"
+                        ? "🐟"
+                        : pet.species == "Snake"
+                        ? "🐍"
+                        : pet.species == "Monkey"
+                        ? "🐵"
+                        : pet.species == "Rabbit"
+                        ? "🐰"
+                        : "🐾"}{" "}
+                      <Text style={styles.petName}>{pet.name}</Text>{" "}
+                      <Text
+                        style={{
+                          fontWeight: "bold",
+                          color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
+                        }}
+                      >
+                        {pet.gender == "F" ? "♀" : "♂"}
+                      </Text>
+                      </Text>
+                      <Text
+                        style={{
+                          fontStyle: "italic",
+                          color: "grey",
+                          fontWeight: "bold",
+                          textAlign: "right",
+                          justifyContent: "flex-end",
+                          alignItems: "center",
+                        }}
+                      >
+                        {pet.dob}
+                      </Text>
+                    </Text>
+                  </TouchableOpacity>
+                </Text>
+              ))}
+          </View>
         </View>
       </View>
     </View>
@@ -96,6 +173,16 @@ const styles = StyleSheet.create({
     color: "#9132a8",
     fontSize: 22,
     textAlign: "center",
+  },
+  titles: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#9132a8",
+  },
+  petName: {
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#9132a8",
   },
 });
 

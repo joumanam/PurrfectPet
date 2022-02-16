@@ -15,25 +15,7 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import MyPetsList from "../components/MyPetsList";
 
 export default function MyProfile() {
-  const myPets = [
-    { id: 1, name: "Melodie", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 2, name: "Roxy", gender: "F", species: "Cat", Dob: "05/2013" },
-    { id: 3, name: "Sakura", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 4, name: "Coopy", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 5, name: "Kiwi", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 6, name: "Mango", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 7, name: "Floki", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 8, name: "Misty", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 9, name: "Melodie", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 20, name: "Roxy", gender: "F", species: "Cat", Dob: "05/2013" },
-    { id: 30, name: "Sakura", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 40, name: "Coopy", gender: "F", species: "Cat", Dob: "05/2015" },
-    { id: 50, name: "Kiwi", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 60, name: "Mango", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 70, name: "Floki", gender: "M", species: "Cat", Dob: "05/2015" },
-    { id: 80, name: "Misty", gender: "F", species: "Cat", Dob: "05/2015" },
-  ];
-
+  
   const onEdit = () => {
     console.warn("hi");
   };
@@ -46,10 +28,9 @@ export default function MyProfile() {
           <View style={styles.card}>
             <Text style={styles.bigTitle}>Personal Information</Text>
             <Text>
-              <Icon name="user" size={20} color="#9132a8" />
               <Text style={styles.titles}>
                 {" "}
-                Full Name: {"                                           "}
+                💬 Full Name: {"                                         "}
               </Text>
               <TouchableOpacity onPress={onEdit}>
                 <Icon name="edit" size={25} color="#9132a8" />
@@ -63,8 +44,8 @@ export default function MyProfile() {
               Joumana Moussa{" "}
             </Text>
             <Text>
-              <Icon name="birthday-cake" size={20} color="#9132a8" />
-              <Text style={styles.titles}> Date of Birth: </Text>
+              {/* <Icon name="birthday-cake" size={20} color="#9132a8" /> */}
+              <Text style={styles.titles}>🎂 Date of Birth: </Text>
             </Text>
 
             <Text
@@ -74,8 +55,8 @@ export default function MyProfile() {
               23/07/1994{" "}
             </Text>
             <Text>
-              <Icon name="envelope" size={20} color="#9132a8" />
-              <Text style={styles.titles}> Email Address: </Text>
+              {/* <Icon name="envelope" size={20} color="#9132a8" /> */}
+              <Text style={styles.titles}>✉️ Email Address: </Text>
             </Text>
             <Text
               style={{ paddingLeft: -5, fontWeight: "bold", marginBottom: 5 }}
@@ -84,8 +65,8 @@ export default function MyProfile() {
               joumanamoussa14@gmail.com{" "}
             </Text>
             <Text>
-              <Icon name="lock" size={20} color="#9132a8" />
-              <Text style={styles.titles}> Password: </Text>
+              {/* <Icon name="lock" size={20} color="#9132a8" /> */}
+              <Text style={styles.titles}>🔒 Password: </Text>
             </Text>
             <Text
               style={{
