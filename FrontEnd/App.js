@@ -96,44 +96,7 @@ export default function App() {
             ),
           }}
         />
-        {/* <Tabs.Screen
-          name="Browse Page"
-          component={BrowseStackScreen}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => (
-              <MaterialCommunityIcons
-                name={"book-search"}
-                size={25}
-                color={color}
-              />
-            ),
-          }}
-        /> */}
-        {/* <Tabs.Screen
-          name="New Book"
-          component={AddNewBook}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => (
-              <MaterialCommunityIcons
-                name={"plus-box"}
-                size={25}
-                color={color}
-              />
-            ),
-          }}
-        /> */}
-        {/* <Tabs.Screen
-          name="Chat"
-          component={ChatStackScreen}
-          options={{
-            headerShown: false,
-            tabBarIcon: ({ focused, color, size }) => (
-              <MaterialCommunityIcons name={"chat"} size={25} color={color} />
-            ),
-          }}
-        /> */}
+     
         <Tabs.Screen
           name="Pet's Profile"
           component={PetProfileStackScreen}
@@ -151,6 +114,5 @@ export default function App() {
       </Tabs.Navigator>
     </NavigationContainer>
   );
-  // <MyProfile />
-  // )
+
 }
