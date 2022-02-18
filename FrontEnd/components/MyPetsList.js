@@ -115,7 +115,7 @@ function MyPetsList() {
                           color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
                         }}
                       >
-                        {pet.gender == "F" ? "♀" : "♂"}
+                        {pet.gender == "F" ? "♀" : "♂"}{" "}
                       </Text>
                       </Text>
                       <Text
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 10,
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
+    backgroundColor: 'white'
   },
   card: {
     backgroundColor: "#f5f3f2",

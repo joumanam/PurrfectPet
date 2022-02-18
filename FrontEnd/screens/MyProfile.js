@@ -3,10 +3,7 @@ import {
   Text,
   View,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
-  StatusBar,
-  FlatList,
 } from "react-native";
 import axios from "axios";
 import Header from "../components/Header";
@@ -21,7 +18,7 @@ export default function MyProfile() {
   };
 
   return (
-    <View>
+    <View style={{backgroundColor: 'white'}}>
       <ScrollView>
         <Header title="MY PROFILE" />
         <View style={styles.container}>
@@ -97,7 +94,8 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 20,
     flex: 1,
-    paddingTop: StatusBar.currentHeight,
+    backgroundColor: 'white',
+    // paddingTop: StatusBar.currentHeight,
   },
   card: {
     backgroundColor: "#f5f3f2",

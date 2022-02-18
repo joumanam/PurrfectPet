@@ -1,9 +1,16 @@
-import React from 'react'
+import React from "react";
+import {
+  Text,
+  View,
+
+} from "react-native";
 
 function PetProfile() {
   return (
-    <div>PetProfile</div>
-  )
+    <View>
+      <Text>Pet Profile</Text>
+    </View>
+  );
 }
 
-export default PetProfile
+export default PetProfile;

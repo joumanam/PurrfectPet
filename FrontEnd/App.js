@@ -1,13 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import React, { useState } from "react";
-import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialBottomTabNavigator } from "@react-navigation/material-bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
-
-// check module.expo bi babel.config eza ma zabat
 
 import Login from "./screens/Login";
 import Register from "./screens/Register";
@@ -21,17 +17,19 @@ import {
 } from "@expo-google-fonts/indie-flower";
 
 export const AuthStack = createStackNavigator();
-const Tabs = createBottomTabNavigator();
+const Tabs = createMaterialBottomTabNavigator();
+const ProfileStack = createStackNavigator();
+const PetProfileStack = createStackNavigator();
+
 
 // Profile Navigation
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
     <ProfileStack.Screen
-      name="My Profile"
+      name="Profile Stack"
       component={MyProfile}
       options={{ headerShown: false }}
     />
-   
   </ProfileStack.Navigator>
 );
 
@@ -42,7 +40,6 @@ const PetProfileStackScreen = () => (
       component={PetProfile}
       options={{ headerShown: false }}
     />
-   
   </PetProfileStack.Navigator>
 );
 
@@ -73,12 +70,12 @@ export default function App() {
         activeColor="white"
         inactiveColor="grey"
         barStyle={{
-          backgroundColor: "#710D0D",
-          shadowColor: "black",
-          shadowOffset: { width: 1, height: 3 },
-          shadowOpacity: 0.7,
-          shadowRadius: 5,
-          overflow: "hidden",
+          backgroundColor: "#9132a8",
+          // shadowColor: "black",
+          // shadowOffset: { width: 1, height: 3 },
+          // shadowOpacity: 0.7,
+          // shadowRadius: 5,
+          overflow: 'hidden',
           height: 56,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
@@ -144,7 +141,7 @@ export default function App() {
             headerShown: false,
             tabBarIcon: ({ focused, color, size }) => (
               <MaterialCommunityIcons
-                name={"map-search"}
+                name={"cat"}
                 size={25}
                 color={color}
               />

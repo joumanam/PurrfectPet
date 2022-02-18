@@ -24,6 +24,7 @@ export default function Header(props) {
 
 const styles = StyleSheet.create({
   safeArea: {
+    backgroundColor: 'white',
     padding: Platform.OS === "android" ? StatusBar.currentHeight : 0,
   },
   backgroundImg: {
