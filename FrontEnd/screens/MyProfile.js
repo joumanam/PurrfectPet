@@ -92,7 +92,7 @@ export default function MyProfile() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginBottom: 20,
+    marginBottom: 50,
     flex: 1,
     backgroundColor: 'white',
     // paddingTop: StatusBar.currentHeight,

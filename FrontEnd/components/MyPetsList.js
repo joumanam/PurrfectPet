@@ -1,15 +1,8 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  FlatList,
-} from "react-native";
+import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
+import AddPet from "./AddPet";
 
 function MyPetsList() {
   const myPets = [
@@ -29,14 +22,15 @@ function MyPetsList() {
     { id: 14, name: "Leo", gender: "M", species: "Dog", dob: "05/2015" },
   ];
 
-  const [isArrowPressed, setIsArrowPressed] = useState(false);
-  const arrowPressed = () => {
-    setIsArrowPressed(!isArrowPressed);
+  const [isAddPressed, setIsAddPressed] = useState(false);
+
+  const addPressed = () => {
+    setIsAddPressed(!isAddPressed);
   };
 
   return (
     <View style={styles.container}>
-      <View style={{ ...styles.card, height: isArrowPressed ? "auto" : 67 }}>
+      <View style={{ ...styles.card}}>
         <View>
           <Text
             style={{
@@ -47,34 +41,38 @@ function MyPetsList() {
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={styles.bigTitle}>My Pets {"     "}</Text>
-              <TouchableOpacity onPress={arrowPressed}>
-                {isArrowPressed ? (
-                  <Icon name="arrow-circle-up" size={25} color="#9132a8" />
-                ) : (
-                  <Icon name="arrow-circle-down" size={25} color="#9132a8" />
-                )}
-              </TouchableOpacity>
+              
               <Text>{"   "}</Text>
-              <TouchableOpacity>
-                <Icon name="plus-circle" size={25} color="#9132a8" />
+              <TouchableOpacity onPress={addPressed}>
+                {isAddPressed ? (
+                  <Icon name="minus-circle" size={25} color="#9132a8" />
+                ) : (
+                  <Icon name="plus-circle" size={25} color="#9132a8" />
+                )}
               </TouchableOpacity>
             </View>
           </Text>
+          {isAddPressed ? (
+            <View>
+              <AddPet />
+            </View>
+          ) : null}
+
           <View
             style={{
               flex: 1,
               flexDirection: "column",
-              justifyContent: 'space-between',
+              justifyContent: "space-between",
               alignItems: "stretch",
             }}
           >
-            {isArrowPressed &&
+            {
               myPets.map((pet) => (
                 <Text
                   key={pet.id}
                   // style={{
                   //   flexDirection: "row",
-                    // flexWrap: "nowrap",
+                  // flexWrap: "nowrap",
                   //   flex: 1,
                   // }}
                 >
@@ -86,37 +84,38 @@ function MyPetsList() {
                         flexDirection: "row",
                         alignItems: "center",
                       }}
-                    ><Text style={{justifyContent: 'flex-start'}}>
-                      {pet.species == "Cat"
-                        ? "🐱"
-                        : pet.species == "Dog"
-                        ? "🐶"
-                        : pet.species == "Hamster"
-                        ? "🐹"
-                        : pet.species == "Turtle"
-                        ? "🐢"
-                        : pet.species == "Bird"
-                        ? "🐦"
-                        : pet.species == "Parrot"
-                        ? "🦜"
-                        : pet.species == "Fish"
-                        ? "🐟"
-                        : pet.species == "Snake"
-                        ? "🐍"
-                        : pet.species == "Monkey"
-                        ? "🐵"
-                        : pet.species == "Rabbit"
-                        ? "🐰"
-                        : "🐾"}{" "}
-                      <Text style={styles.petName}>{pet.name}</Text>{" "}
-                      <Text
-                        style={{
-                          fontWeight: "bold",
-                          color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
-                        }}
-                      >
-                        {pet.gender == "F" ? "♀" : "♂"}{" "}
-                      </Text>
+                    >
+                      <Text style={{ justifyContent: "flex-start" }}>
+                        {pet.species == "Cat"
+                          ? "🐱"
+                          : pet.species == "Dog"
+                          ? "🐶"
+                          : pet.species == "Hamster"
+                          ? "🐹"
+                          : pet.species == "Turtle"
+                          ? "🐢"
+                          : pet.species == "Bird"
+                          ? "🐦"
+                          : pet.species == "Parrot"
+                          ? "🦜"
+                          : pet.species == "Fish"
+                          ? "🐟"
+                          : pet.species == "Snake"
+                          ? "🐍"
+                          : pet.species == "Monkey"
+                          ? "🐵"
+                          : pet.species == "Rabbit"
+                          ? "🐰"
+                          : "🐾"}{" "}
+                        <Text style={styles.petName}>{pet.name}</Text>{" "}
+                        <Text
+                          style={{
+                            fontWeight: "bold",
+                            color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
+                          }}
+                        >
+                          {pet.gender == "F" ? "♀" : "♂"}{" "}
+                        </Text>
                       </Text>
                       <Text
                         style={{
@@ -144,9 +143,9 @@ function MyPetsList() {
 const styles = StyleSheet.create({
   container: {
     padding: 20,
-    marginBottom: 10,
+    // marginBottom: 10,
     flex: 1,
-    backgroundColor: 'white'
+    backgroundColor: "white",
   },
   card: {
     backgroundColor: "#f5f3f2",

@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 190,
     marginTop: -25,
-    marginBottom: -15,
+    // marginBottom: -15,
     padding: -5 
   },
   title: {

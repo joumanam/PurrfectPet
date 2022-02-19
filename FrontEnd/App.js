@@ -21,7 +21,6 @@ const Tabs = createMaterialBottomTabNavigator();
 const ProfileStack = createStackNavigator();
 const PetProfileStack = createStackNavigator();
 
-
 // Profile Navigation
 const ProfileStackScreen = () => (
   <ProfileStack.Navigator>
@@ -53,7 +52,9 @@ export default function App() {
   }
 
   return (
+    // <MyProfile />)
     <NavigationContainer>
+  
       {/* <AuthStack.Navigator>
         <AuthStack.Screen
           name="Login"
@@ -66,6 +67,7 @@ export default function App() {
           options={{ title: "Back To Login Page" }}
         />
       </AuthStack.Navigator> */}
+      
       <Tabs.Navigator
         activeColor="white"
         inactiveColor="grey"
@@ -75,12 +77,15 @@ export default function App() {
           // shadowOffset: { width: 1, height: 3 },
           // shadowOpacity: 0.7,
           // shadowRadius: 5,
-          overflow: 'hidden',
+          overflow: "hidden",
           height: 56,
           borderTopLeftRadius: 15,
           borderTopRightRadius: 15,
         }}
         initialRouteName="My Profile"
+        screenOptions={{
+          tabBarStyle: { position: "absolute" },
+        }}
       >
         <Tabs.Screen
           name="My Profile"
@@ -96,23 +101,18 @@ export default function App() {
             ),
           }}
         />
-     
+
         <Tabs.Screen
           name="Pet's Profile"
           component={PetProfileStackScreen}
           options={{
             headerShown: false,
             tabBarIcon: ({ focused, color, size }) => (
-              <MaterialCommunityIcons
-                name={"cat"}
-                size={25}
-                color={color}
-              />
+              <MaterialCommunityIcons name={"cat"} size={25} color={color} />
             ),
           }}
         />
       </Tabs.Navigator>
     </NavigationContainer>
   );
-
 }
