@@ -4,6 +4,7 @@ import ReactNativeModal from "react-native-modal";
 import { CheckBox } from "react-native-elements";
 import DropDownPicker from "react-native-dropdown-picker";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import CalendarPicker from "react-native-calendar-picker";
 
 import CustomInput from "./CustomInput";
 import CustomButton from "./CustomButton";
@@ -35,7 +36,6 @@ function AddPetModal({ cancelPressed }) {
   const [rnmodalVisible, setRnmodalVisible] = useState(true);
   const [show, setShow] = useState(false);
 
- 
   const buttonPressed = () => {
     setOpenModal(true);
     setRnmodalVisible(true);
@@ -130,18 +130,23 @@ function AddPetModal({ cancelPressed }) {
               />
             </View>
             <Text style={styles.titles}>Date of Birth:</Text>
-          
-            {/* <DateTimePicker
-              testID="dateTimePicker"
-              value={petDob}
-              mode="date"
-              isVisible = 'true'
-              display="inline"
-              onChange={(value) => {
-                setPetDob(value);
-              }}
-            /> */}
-            <View><Text>{" "}</Text></View>
+
+            <View style={{marginTop: 3}}>
+              <CalendarPicker
+                width={340}
+                height={340}
+                // scrollable={true}
+                selectedDayColor='#9132a8'
+                selectedDayTextColor='white'
+                value={petDob}
+                onDateChange={(value) => {
+                  setPetDob(value);
+                }}
+              />
+            </View>
+            <View>
+              <Text> </Text>
+            </View>
             <CustomButton title="Add Pet" onPress={buttonPressed} />
             <CustomButton title="Cancel" onPress={cancelPressed} />
           </View>
