@@ -9,6 +9,7 @@ import axios from "axios";
 import Header from "../components/Header";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableOpacity } from "react-native-gesture-handler";
+
 import MyPetsList from "../components/MyPetsList";
 
 export default function MyProfile() {
@@ -16,6 +17,8 @@ export default function MyProfile() {
   const onEdit = () => {
     console.warn("hi");
   };
+
+  
 
   return (
     <View style={{backgroundColor: 'white'}}>

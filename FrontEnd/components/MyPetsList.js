@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
-import AddPet from "./AddPet";
+
+import AddPetModal from "./AddPetModal";
 
 function MyPetsList() {
   const myPets = [
@@ -23,14 +24,25 @@ function MyPetsList() {
   ];
 
   const [isAddPressed, setIsAddPressed] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
+  const [rnmodalVisible, setRnmodalVisible] = useState(true);
 
   const addPressed = () => {
-    setIsAddPressed(!isAddPressed);
+    setIsAddPressed(true);
+    setOpenModal(true);
+    setRnmodalVisible(true);
+  };
+
+  const cancelPressed = () => {
+    setOpenModal(false);
+    setIsAddPressed(false);
+    setRnmodalVisible(false);
+
   };
 
   return (
     <View style={styles.container}>
-      <View style={{ ...styles.card}}>
+      <View style={{ ...styles.card }}>
         <View>
           <Text
             style={{
@@ -41,20 +53,16 @@ function MyPetsList() {
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Text style={styles.bigTitle}>My Pets {"     "}</Text>
-              
+
               <Text>{"   "}</Text>
               <TouchableOpacity onPress={addPressed}>
-                {isAddPressed ? (
-                  <Icon name="minus-circle" size={25} color="#9132a8" />
-                ) : (
-                  <Icon name="plus-circle" size={25} color="#9132a8" />
-                )}
+                <Icon name="plus-circle" size={25} color="#9132a8" />
               </TouchableOpacity>
             </View>
           </Text>
           {isAddPressed ? (
             <View>
-              <AddPet />
+              <AddPetModal cancelPressed={cancelPressed}/>
             </View>
           ) : null}
 
@@ -66,73 +74,65 @@ function MyPetsList() {
               alignItems: "stretch",
             }}
           >
-            {
-              myPets.map((pet) => (
-                <Text
-                  key={pet.id}
-                  // style={{
-                  //   flexDirection: "row",
-                  // flexWrap: "nowrap",
-                  //   flex: 1,
-                  // }}
-                >
-                  {" "}
-                  <TouchableOpacity>
+            {myPets.map((pet) => (
+              <Text key={pet.id}>
+                {" "}
+                <TouchableOpacity>
+                  <Text
+                    style={{
+                      flex: 1,
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
+                  >
+                    <Text style={{ justifyContent: "flex-start" }}>
+                      {pet.species == "Cat"
+                        ? "🐱"
+                        : pet.species == "Dog"
+                        ? "🐶"
+                        : pet.species == "Hamster"
+                        ? "🐹"
+                        : pet.species == "Turtle"
+                        ? "🐢"
+                        : pet.species == "Bird"
+                        ? "🐦"
+                        : pet.species == "Parrot"
+                        ? "🦜"
+                        : pet.species == "Fish"
+                        ? "🐟"
+                        : pet.species == "Snake"
+                        ? "🐍"
+                        : pet.species == "Monkey"
+                        ? "🐵"
+                        : pet.species == "Rabbit"
+                        ? "🐰"
+                        : "🐾"}{" "}
+                      <Text style={styles.petName}>{pet.name}</Text>{" "}
+                      <Text
+                        style={{
+                          fontWeight: "bold",
+                          color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
+                        }}
+                      >
+                        {pet.gender == "F" ? "♀" : "♂"}{" "}
+                      </Text>
+                    </Text>
                     <Text
                       style={{
-                        flex: 1,
-                        flexDirection: "row",
+                        fontStyle: "italic",
+                        color: "grey",
+                        fontWeight: "bold",
+                        textAlign: "right",
+                        justifyContent: "flex-end",
                         alignItems: "center",
                       }}
                     >
-                      <Text style={{ justifyContent: "flex-start" }}>
-                        {pet.species == "Cat"
-                          ? "🐱"
-                          : pet.species == "Dog"
-                          ? "🐶"
-                          : pet.species == "Hamster"
-                          ? "🐹"
-                          : pet.species == "Turtle"
-                          ? "🐢"
-                          : pet.species == "Bird"
-                          ? "🐦"
-                          : pet.species == "Parrot"
-                          ? "🦜"
-                          : pet.species == "Fish"
-                          ? "🐟"
-                          : pet.species == "Snake"
-                          ? "🐍"
-                          : pet.species == "Monkey"
-                          ? "🐵"
-                          : pet.species == "Rabbit"
-                          ? "🐰"
-                          : "🐾"}{" "}
-                        <Text style={styles.petName}>{pet.name}</Text>{" "}
-                        <Text
-                          style={{
-                            fontWeight: "bold",
-                            color: pet.gender == "F" ? "#eb34b1" : "#34dfeb",
-                          }}
-                        >
-                          {pet.gender == "F" ? "♀" : "♂"}{" "}
-                        </Text>
-                      </Text>
-                      <Text
-                        style={{
-                          fontStyle: "italic",
-                          color: "grey",
-                          fontWeight: "bold",
-                          textAlign: "right",
-                          justifyContent: "flex-end",
-                          alignItems: "center",
-                        }}
-                      >
-                        {pet.dob}
-                      </Text>
+                      {pet.dob}
                     </Text>
-                  </TouchableOpacity>
-                </Text>
-              ))}
+                  </Text>
+                </TouchableOpacity>
+              </Text>
+            ))}
           </View>
         </View>
       </View>

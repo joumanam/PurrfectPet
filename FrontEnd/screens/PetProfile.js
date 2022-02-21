@@ -1,14 +1,15 @@
 import React from "react";
 import { Text, View } from "react-native";
-import AddPet from "../components/AddPet";
-import RNModal from "../components/RNModal";
+import AddPetModal from "../components/AddPetModal";
+import InlineDatePicker from 'react-native-inline-datepicker';
 
 function PetProfile() {
+  const value = new Date();
   return (
     <View>
       <Text>Pet Profile</Text>
       <View>
-        <RNModal />
+       
       </View>
     </View>
   );
