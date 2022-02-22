@@ -1,17 +1,17 @@
 import React from "react";
 import { StyleSheet, Text, TouchableOpacity } from "react-native";
 
-export default function CustomButton({title, onPress}) {
+export default function CustomButton({title, onPress, bgColor, textColor}) {
     return (
-        <TouchableOpacity style={styles.buttonCard} onPress={onPress}>
-            <Text style={styles.text}>{title}</Text>
+        <TouchableOpacity style={{...styles.buttonCard, backgroundColor: bgColor}} onPress={onPress}>
+            <Text style={{...styles.text, color: textColor}}>{title}</Text>
         </TouchableOpacity>
     )
 }
 
 const styles = StyleSheet.create({
     buttonCard: {
-        backgroundColor: "#9132a8",
+        // backgroundColor: {backgroundColor},
         borderRadius: 5,
         width: '95%',
         justifyContent: 'center',
@@ -21,7 +21,7 @@ const styles = StyleSheet.create({
         marginTop: 4
     },
     text: {
-        color: 'white',
+        // color: 'white',
         alignSelf: 'center',
         textAlign: 'center',
         fontWeight: 'bold'

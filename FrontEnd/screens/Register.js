@@ -128,7 +128,7 @@ export default function Register(props) {
           textContentType="password"
           onChangeText={(value) => setConfirmPassword(value)}
         />
-        <CustomButton title="REGISTER" onPress={submitHandler} />
+        <CustomButton title="REGISTER" onPress={submitHandler} bgColor='#9132a8' textColor={'white'}/>
         <TouchableOpacity
           onPress={() => props.navigation.navigate("Login")}
           style={{

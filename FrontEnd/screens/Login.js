@@ -12,7 +12,6 @@ import CustomInput from "../components/CustomInput";
 export default function Login(props) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const submitHandler = () => {
     console.warn("email is:", email, "password is:", password);
@@ -44,8 +43,14 @@ export default function Login(props) {
           textContentType="password"
           onChangeText={(value) => setPassword(value)}
         />
-        <CustomButton title="LOGIN" onPress={submitHandler} />
-        <TouchableOpacity onPress={()=>props.navigation.navigate("Register")}
+        <CustomButton
+          title="LOGIN"
+          onPress={submitHandler}
+          bgColor="#9132a8"
+          textColor={"white"}
+        />
+        <TouchableOpacity
+          onPress={() => props.navigation.navigate("Register")}
           style={{
             textAlign: "center",
             marginTop: 4,

@@ -6,11 +6,18 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import MyPetsList from "../components/MyPetsList";
+import EditInfoModal from "../components/EditInfoModal";
 
 export default function MyProfile() {
+  const [editPressed, setEditPressed] = useState(false);
+
   const onEdit = () => {
-    console.warn("hi");
+    setEditPressed(true);
   };
+
+  const onCancel = () => {
+    setEditPressed(false)
+  }
 
   return (
     <View style={{ backgroundColor: "white" }}>
@@ -36,7 +43,6 @@ export default function MyProfile() {
               Joumana Moussa{" "}
             </Text>
             <Text>
-              {/* <Icon name="birthday-cake" size={20} color="#9132a8" /> */}
               <Text style={styles.titles}>🎂 Date of Birth: </Text>
             </Text>
 
@@ -47,7 +53,6 @@ export default function MyProfile() {
               23/07/1994{" "}
             </Text>
             <Text>
-              {/* <Icon name="envelope" size={20} color="#9132a8" /> */}
               <Text style={styles.titles}>✉️ Email Address: </Text>
             </Text>
             <Text
@@ -57,7 +62,6 @@ export default function MyProfile() {
               joumanamoussa14@gmail.com{" "}
             </Text>
             <Text>
-              {/* <Icon name="lock" size={20} color="#9132a8" /> */}
               <Text style={styles.titles}>🔒 Password: </Text>
             </Text>
             <Text
@@ -72,6 +76,7 @@ export default function MyProfile() {
               •••••••••••••{" "}
             </Text>
           </View>
+          {editPressed && <EditInfoModal onCancel={onCancel}/>}
           <View>
             <Text></Text>
           </View>

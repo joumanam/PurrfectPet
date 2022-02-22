@@ -69,13 +69,9 @@ export default function App() {
 
       <Tabs.Navigator
         activeColor="white"
-        inactiveColor="grey"
+        inactiveColor="#9132a8"
         barStyle={{
-          backgroundColor: "#9132a8",
-          // shadowColor: "black",
-          // shadowOffset: { width: 1, height: 3 },
-          // shadowOpacity: 0.7,
-          // shadowRadius: 5,
+          backgroundColor: "#a663cc",
           overflow: "hidden",
           height: 56,
           borderTopLeftRadius: 15,

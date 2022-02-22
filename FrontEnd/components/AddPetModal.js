@@ -35,13 +35,13 @@ function AddPetModal({ cancelPressed, addPetPressed, addPet }) {
     { id: "10", label: "Other", value: "Other" },
   ];
 
-  const [petDob, setPetDob] = useState('');
+  const [petDob, setPetDob] = useState("");
 
   const [isMale, setIsMale] = useState(false);
   const [isFemale, setIsFemale] = useState(false);
   const [open, setOpen] = useState(false); // for the dropdown list (species)
   const [rnmodalVisible, setRnmodalVisible] = useState(true);
-  const [validated, setValidated] = useState(false)
+  const [validated, setValidated] = useState(false);
 
   const genderMale = () => {
     setIsFemale(false);
@@ -75,7 +75,9 @@ function AddPetModal({ cancelPressed, addPetPressed, addPet }) {
                 </Text>
                 <Text style={styles.titles}> Name:</Text>
                 {addPet && !petName && (
-                  <Text style={styles.validation}>Please enter a valid name</Text>
+                  <Text style={styles.validation}>
+                    Please enter a valid name
+                  </Text>
                 )}
                 <CustomInput
                   secured={false}
@@ -85,7 +87,9 @@ function AddPetModal({ cancelPressed, addPetPressed, addPet }) {
                 />
                 <Text style={styles.titles}> Gender:</Text>
                 {addPet && !petGender && (
-                  <Text style={styles.validation}>Please select your pet's gender</Text>
+                  <Text style={styles.validation}>
+                    Please select your pet's gender
+                  </Text>
                 )}
                 <View>
                   <CheckBox
@@ -142,13 +146,15 @@ function AddPetModal({ cancelPressed, addPetPressed, addPet }) {
                 </View>
                 <Text style={styles.titles}> Date of Birth: </Text>
                 {addPet && !petDob && (
-                  <Text style={styles.validation}>Please select a date of birth</Text>
+                  <Text style={styles.validation}>
+                    Please select a date of birth
+                  </Text>
                 )}
                 <View style={{ marginTop: 3 }}>
                   <CalendarPicker
                     width={330}
                     height={340}
-                    selectedDayColor="#9132a8"
+                    selectedDayColor="#a663cc"
                     selectedDayTextColor="white"
                     value={petDob}
                     onDateChange={(value) => {
@@ -156,8 +162,18 @@ function AddPetModal({ cancelPressed, addPetPressed, addPet }) {
                     }}
                   />
                 </View>
-                <CustomButton title="Add Pet" onPress={addPetPressed} />
-                <CustomButton title="Cancel" onPress={cancelPressed} />
+                <CustomButton
+                  title="Add Pet"
+                  bgColor="#9132a8"
+                  textColor={"white"}
+                  onPress={addPetPressed}
+                />
+                <CustomButton
+                  title="Cancel"
+                  bgColor="#a663cc"
+                  textColor={"white"}
+                  onPress={cancelPressed}
+                />
               </View>
             </View>
           </ScrollView>
@@ -224,6 +240,6 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontStyle: "italic",
     marginLeft: 5,
-    fontWeight: 'bold'
+    fontWeight: "bold",
   },
 });
