@@ -1,10 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-} from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 import axios from "axios";
 import Header from "../components/Header";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -13,15 +8,12 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import MyPetsList from "../components/MyPetsList";
 
 export default function MyProfile() {
-  
   const onEdit = () => {
     console.warn("hi");
   };
 
-  
-
   return (
-    <View style={{backgroundColor: 'white'}}>
+    <View style={{ backgroundColor: "white" }}>
       <ScrollView>
         <Header title="MY PROFILE" />
         <View style={styles.container}>
@@ -97,7 +89,7 @@ const styles = StyleSheet.create({
     padding: 20,
     marginBottom: 50,
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     // paddingTop: StatusBar.currentHeight,
   },
   card: {
@@ -108,7 +100,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     // marginRight: 10,
     width: 320,
-    height: 'auto',
+    height: "auto",
     paddingTop: 10,
     paddingBottom: 20,
     paddingHorizontal: 20,

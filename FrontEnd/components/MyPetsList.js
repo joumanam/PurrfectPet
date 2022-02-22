@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, View, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -24,21 +24,29 @@ function MyPetsList() {
   ];
 
   const [isAddPressed, setIsAddPressed] = useState(false);
-  const [openModal, setOpenModal] = useState(false);
   const [rnmodalVisible, setRnmodalVisible] = useState(true);
+  const [addPet, setAddPet] = useState(false)
 
   const addPressed = () => {
     setIsAddPressed(true);
-    setOpenModal(true);
     setRnmodalVisible(true);
+    setAddPet(false)
+  };
+
+  const addPetPressed = () => {
+    // setIsAddPressed(false);
+    setRnmodalVisible(true);
+    setAddPet(true)
+
   };
 
   const cancelPressed = () => {
-    setOpenModal(false);
     setIsAddPressed(false);
     setRnmodalVisible(false);
-
   };
+
+
+
 
   return (
     <View style={styles.container}>
@@ -62,7 +70,11 @@ function MyPetsList() {
           </Text>
           {isAddPressed ? (
             <View>
-              <AddPetModal cancelPressed={cancelPressed}/>
+              <AddPetModal
+                cancelPressed={cancelPressed}
+                addPetPressed={addPetPressed}
+                addPet={addPet}
+              />
             </View>
           ) : null}
 

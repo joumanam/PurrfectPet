@@ -54,7 +54,6 @@ export default function App() {
   return (
     // <MyProfile />)
     <NavigationContainer>
-  
       {/* <AuthStack.Navigator>
         <AuthStack.Screen
           name="Login"
@@ -67,7 +66,7 @@ export default function App() {
           options={{ title: "Back To Login Page" }}
         />
       </AuthStack.Navigator> */}
-      
+
       <Tabs.Navigator
         activeColor="white"
         inactiveColor="grey"
